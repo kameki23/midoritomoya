@@ -605,23 +605,53 @@
 
     /* ===== DREAM SECTION ===== */
     .dream-banner {
-      background: linear-gradient(135deg, rgba(0,230,118,0.08), rgba(46,125,50,0.15));
-      border: 1px solid rgba(0,230,118,0.2);
+      position: relative;
       border-radius: var(--radius-lg);
-      padding: 48px;
-      text-align: center;
+      overflow: hidden;
+      border: 1px solid rgba(0,230,118,0.3);
+      padding: 0;
       margin-top: 60px;
+      min-height: 240px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .dream-banner-bg {
+      position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+      background-image: url('travel_banner.png');
+      background-size: cover;
+      background-position: center;
+      filter: brightness(0.45) saturate(1.2);
+      transition: transform 0.8s ease;
+    }
+    .dream-banner:hover .dream-banner-bg {
+      transform: scale(1.04);
+    }
+    .dream-banner-overlay {
+      position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+      background: linear-gradient(135deg,
+        rgba(0,20,5,0.5) 0%,
+        rgba(0,60,20,0.3) 50%,
+        rgba(0,20,5,0.5) 100%
+      );
+    }
+    .dream-banner-content {
+      position: relative; z-index: 2;
+      text-align: center;
+      padding: 56px 48px;
     }
     .dream-banner h3 {
-      font-size: 1.6rem; font-weight: 900;
+      font-size: 2rem; font-weight: 900;
       color: var(--green-bright);
       margin-bottom: 12px;
+      text-shadow: 0 0 30px rgba(0,230,118,0.5);
     }
     .dream-banner p {
-      font-size: 1.1rem;
-      color: var(--green-100);
-      opacity: 0.8;
+      font-size: 1.2rem;
+      color: #fff;
+      opacity: 0.95;
       line-height: 1.8;
+      text-shadow: 0 2px 12px rgba(0,0,0,0.8);
     }
     .dream-emoji { font-size: 2.5rem; margin-bottom: 16px; }
   </style>
@@ -738,9 +768,13 @@
       </div>
 
       <div class="dream-banner reveal">
-        <div class="dream-emoji">🌟</div>
-        <h3>夢</h3>
-        <p>旅系インフルエンサーで1番有名になる！</p>
+        <div class="dream-banner-bg"></div>
+        <div class="dream-banner-overlay"></div>
+        <div class="dream-banner-content">
+          <div class="dream-emoji">🌟</div>
+          <h3>夢</h3>
+          <p>旅系インフルエンサーで1番有名になる！</p>
+        </div>
       </div>
     </div>
   </section>
