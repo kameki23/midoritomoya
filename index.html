@@ -1,0 +1,1047 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>💚 緑ともや｜公式サイト ー トゥクトゥクの人</title>
+  <meta name="description" content="緑ともや（トゥクトゥクの人）公式サイト。旅系インフルエンサー・ライバー・シンガーとして活動中。日本一周トゥクトゥクの旅を完遂。グッズ・ファンクラブ情報もこちら。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;600;700;900&family=M+PLUS+1p:wght@400;700;900&display=swap" rel="stylesheet">
+  <style>
+    /* ===== CSS RESET & BASE ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Noto Sans JP', 'M PLUS 1p', sans-serif;
+      color: #e8f5e9;
+      background: #0a0f0a;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
+    ul { list-style: none; }
+
+    /* ===== CSS CUSTOM PROPERTIES ===== */
+    :root {
+      --green-100: #e8f5e9;
+      --green-200: #a5d6a7;
+      --green-300: #66bb6a;
+      --green-400: #43a047;
+      --green-500: #2e7d32;
+      --green-600: #1b5e20;
+      --green-glow: rgba(76, 175, 80, 0.4);
+      --green-bright: #00e676;
+      --dark-bg: #0a0f0a;
+      --dark-card: rgba(15, 25, 15, 0.85);
+      --glass: rgba(255, 255, 255, 0.06);
+      --glass-border: rgba(255, 255, 255, 0.1);
+      --radius: 16px;
+      --radius-lg: 24px;
+      --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      --max-width: 1100px;
+    }
+
+    /* ===== SCROLLBAR ===== */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--dark-bg); }
+    ::-webkit-scrollbar-thumb { background: var(--green-500); border-radius: 3px; }
+
+    /* ===== ANIMATED BACKGROUND PARTICLES ===== */
+    .bg-particles {
+      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      z-index: 0; pointer-events: none; overflow: hidden;
+    }
+    .particle {
+      position: absolute;
+      width: 4px; height: 4px;
+      background: var(--green-bright);
+      border-radius: 50%;
+      opacity: 0;
+      animation: float-particle 8s infinite ease-in-out;
+    }
+    @keyframes float-particle {
+      0% { opacity: 0; transform: translateY(100vh) scale(0); }
+      20% { opacity: 0.6; }
+      80% { opacity: 0.3; }
+      100% { opacity: 0; transform: translateY(-20vh) scale(1.5); }
+    }
+
+    /* ===== NAVBAR ===== */
+    .navbar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      background: rgba(10, 15, 10, 0.8);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--glass-border);
+      padding: 0 24px;
+      transition: var(--transition);
+    }
+    .navbar-inner {
+      max-width: var(--max-width); margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 64px;
+    }
+    .nav-logo {
+      font-weight: 900; font-size: 1.2rem;
+      background: linear-gradient(135deg, var(--green-bright), var(--green-300));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .nav-links { display: flex; gap: 28px; }
+    .nav-links a {
+      font-size: 0.85rem; font-weight: 600; color: var(--green-200);
+      position: relative; transition: var(--transition);
+      letter-spacing: 0.05em;
+    }
+    .nav-links a::after {
+      content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px;
+      background: var(--green-bright); transition: var(--transition);
+    }
+    .nav-links a:hover { color: var(--green-bright); }
+    .nav-links a:hover::after { width: 100%; }
+
+    /* ===== HERO SECTION ===== */
+    .hero {
+      position: relative; min-height: 100vh;
+      display: flex; align-items: center; justify-content: center;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+      background-image: url('https://prd.resource-api.lit.link/images/creators/2f8f7b0a-de07-4fee-b4c4-425829f62c00/backgrounds/190552bd-8fde-4dc6-933d-30b1b6c434bf.jpeg');
+      background-size: cover; background-position: center;
+      filter: brightness(0.35);
+      animation: hero-zoom 20s ease-in-out infinite alternate;
+    }
+    @keyframes hero-zoom {
+      0% { transform: scale(1); }
+      100% { transform: scale(1.08); }
+    }
+    .hero-overlay {
+      position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+      background: linear-gradient(180deg,
+        rgba(10, 15, 10, 0.3) 0%,
+        rgba(10, 15, 10, 0.1) 40%,
+        rgba(10, 15, 10, 0.7) 80%,
+        rgba(10, 15, 10, 1) 100%
+      );
+    }
+    .hero-content {
+      position: relative; z-index: 2; text-align: center;
+      padding: 100px 24px 60px;
+      animation: fadeInUp 1s ease-out 0.3s both;
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .hero-avatar {
+      width: 160px; height: 160px; border-radius: 50%;
+      border: 4px solid var(--green-bright);
+      box-shadow: 0 0 40px var(--green-glow), 0 0 80px rgba(76, 175, 80, 0.2);
+      margin: 0 auto 24px;
+      object-fit: cover;
+      animation: pulse-glow 3s ease-in-out infinite;
+    }
+    @keyframes pulse-glow {
+      0%, 100% { box-shadow: 0 0 40px var(--green-glow), 0 0 80px rgba(76, 175, 80, 0.2); }
+      50% { box-shadow: 0 0 60px var(--green-glow), 0 0 120px rgba(76, 175, 80, 0.3); }
+    }
+    .hero-name {
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 900;
+      background: linear-gradient(135deg, #fff, var(--green-bright), var(--green-200));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 8px;
+      line-height: 1.3;
+    }
+    .hero-tagline {
+      font-size: clamp(1rem, 2.5vw, 1.3rem);
+      color: var(--green-200);
+      font-weight: 400;
+      margin-bottom: 16px;
+      letter-spacing: 0.1em;
+    }
+    .hero-stats {
+      display: flex; gap: 32px; justify-content: center;
+      margin-top: 32px; flex-wrap: wrap;
+    }
+    .hero-stat {
+      text-align: center;
+    }
+    .hero-stat-num {
+      font-size: 1.8rem; font-weight: 900; color: var(--green-bright);
+      display: block;
+    }
+    .hero-stat-label {
+      font-size: 0.75rem; color: var(--green-200); letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+    .hero-scroll {
+      position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%);
+      z-index: 2;
+      animation: bounce 2s infinite;
+    }
+    .hero-scroll svg {
+      width: 32px; height: 32px; stroke: var(--green-bright); fill: none;
+      stroke-width: 2;
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(12px); }
+    }
+
+    /* ===== SECTION BASE ===== */
+    .section {
+      position: relative; z-index: 1;
+      padding: 100px 24px;
+    }
+    .section-inner {
+      max-width: var(--max-width); margin: 0 auto;
+    }
+    .section-title {
+      font-size: clamp(1.5rem, 4vw, 2.4rem);
+      font-weight: 900;
+      text-align: center;
+      margin-bottom: 16px;
+      background: linear-gradient(135deg, var(--green-bright), var(--green-200));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .section-subtitle {
+      text-align: center; color: var(--green-200);
+      font-size: 0.9rem; margin-bottom: 56px;
+      opacity: 0.7; letter-spacing: 0.15em;
+    }
+
+    /* ===== FADE IN ON SCROLL ===== */
+    .reveal {
+      opacity: 0; transform: translateY(40px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .reveal.visible {
+      opacity: 1; transform: translateY(0);
+    }
+
+    /* ===== ABOUT SECTION ===== */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+    .about-card {
+      background: var(--dark-card);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-lg);
+      padding: 40px;
+      backdrop-filter: blur(10px);
+      transition: var(--transition);
+    }
+    .about-card:hover {
+      border-color: var(--green-400);
+      box-shadow: 0 8px 40px rgba(76, 175, 80, 0.15);
+      transform: translateY(-4px);
+    }
+    .about-card h3 {
+      font-size: 1.3rem; font-weight: 700;
+      color: var(--green-bright); margin-bottom: 20px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .about-card p {
+      font-size: 0.95rem; line-height: 1.9;
+      color: var(--green-100); opacity: 0.85;
+    }
+    .about-tag {
+      display: inline-block;
+      background: rgba(0, 230, 118, 0.12);
+      border: 1px solid rgba(0, 230, 118, 0.25);
+      border-radius: 20px;
+      padding: 6px 16px;
+      font-size: 0.8rem;
+      color: var(--green-bright);
+      margin: 4px;
+      transition: var(--transition);
+    }
+    .about-tag:hover {
+      background: rgba(0, 230, 118, 0.25);
+      transform: scale(1.05);
+    }
+    .about-tags { margin-top: 16px; display: flex; flex-wrap: wrap; gap: 6px; }
+
+    /* ===== HISTORY TIMELINE ===== */
+    .timeline {
+      position: relative;
+      padding-left: 40px;
+      margin-top: 20px;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute; left: 12px; top: 0; bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--green-bright), transparent);
+    }
+    .timeline-item {
+      position: relative;
+      margin-bottom: 24px;
+      padding-left: 20px;
+    }
+    .timeline-item::before {
+      content: '';
+      position: absolute; left: -34px; top: 8px;
+      width: 10px; height: 10px;
+      background: var(--green-bright);
+      border-radius: 50%;
+      box-shadow: 0 0 12px var(--green-glow);
+    }
+    .timeline-item p {
+      font-size: 0.9rem; line-height: 1.6;
+      color: var(--green-100); opacity: 0.8;
+    }
+
+    /* ===== GOODS SECTION ===== */
+    .goods-showcase {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+    .goods-image-wrapper {
+      position: relative;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid var(--glass-border);
+    }
+    .goods-image-wrapper::after {
+      content: '';
+      position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+      background: linear-gradient(135deg, rgba(0,230,118,0.1), transparent);
+      pointer-events: none;
+    }
+    .goods-image-wrapper img {
+      width: 100%; height: auto;
+      transition: transform 0.6s ease;
+    }
+    .goods-image-wrapper:hover img {
+      transform: scale(1.05);
+    }
+    .goods-info h3 {
+      font-size: 1.8rem; font-weight: 900;
+      color: var(--green-bright);
+      margin-bottom: 16px;
+    }
+    .goods-info p {
+      font-size: 1rem; line-height: 1.8;
+      color: var(--green-100); opacity: 0.8;
+      margin-bottom: 24px;
+    }
+
+    /* ===== CTA BUTTONS ===== */
+    .cta-btn {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 16px 36px;
+      background: linear-gradient(135deg, var(--green-500), var(--green-400));
+      color: #fff; font-weight: 700; font-size: 1rem;
+      border-radius: 50px; border: none;
+      cursor: pointer;
+      transition: var(--transition);
+      box-shadow: 0 4px 20px rgba(46, 125, 50, 0.4);
+      text-decoration: none;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-btn::before {
+      content: '';
+      position: absolute; top: 0; left: -100%; width: 100%; height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+      transition: left 0.5s ease;
+    }
+    .cta-btn:hover::before { left: 100%; }
+    .cta-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 32px rgba(46, 125, 50, 0.6);
+    }
+    .cta-btn-secondary {
+      background: transparent;
+      border: 2px solid var(--green-bright);
+      color: var(--green-bright);
+      box-shadow: none;
+    }
+    .cta-btn-secondary:hover {
+      background: rgba(0, 230, 118, 0.1);
+      box-shadow: 0 4px 20px rgba(0, 230, 118, 0.2);
+    }
+
+    /* ===== FANCLUB SECTION ===== */
+    .fanclub-banner {
+      position: relative;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid var(--glass-border);
+      background: var(--dark-card);
+    }
+    .fanclub-banner-img {
+      width: 100%; height: 320px;
+      object-fit: cover;
+      filter: brightness(0.6);
+    }
+    .fanclub-overlay {
+      position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+      background: linear-gradient(180deg, transparent 30%, rgba(10,15,10,0.95) 100%);
+      display: flex; flex-direction: column;
+      justify-content: flex-end;
+      padding: 40px;
+    }
+    .fanclub-overlay h3 {
+      font-size: 2rem; font-weight: 900;
+      color: var(--green-bright);
+      margin-bottom: 12px;
+    }
+    .fanclub-overlay p {
+      color: var(--green-100); font-size: 1rem;
+      line-height: 1.8; margin-bottom: 24px;
+      max-width: 600px;
+    }
+    .fanclub-features {
+      display: flex; gap: 16px; flex-wrap: wrap;
+      margin-bottom: 28px;
+    }
+    .fanclub-feature {
+      background: rgba(0, 230, 118, 0.1);
+      border: 1px solid rgba(0, 230, 118, 0.2);
+      border-radius: 12px;
+      padding: 10px 18px;
+      font-size: 0.85rem;
+      color: var(--green-bright);
+      display: flex; align-items: center; gap: 8px;
+    }
+
+    /* ===== SNS LINKS SECTION ===== */
+    .sns-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 20px;
+    }
+    .sns-card {
+      display: flex; align-items: center; gap: 16px;
+      background: var(--dark-card);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius);
+      padding: 20px 24px;
+      transition: var(--transition);
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .sns-card:hover {
+      border-color: var(--green-400);
+      transform: translateY(-4px) scale(1.01);
+      box-shadow: 0 12px 40px rgba(76, 175, 80, 0.2);
+    }
+    .sns-icon {
+      width: 52px; height: 52px; border-radius: 14px;
+      overflow: hidden; flex-shrink: 0;
+      border: 1px solid var(--glass-border);
+    }
+    .sns-icon img {
+      width: 100%; height: 100%; object-fit: cover;
+    }
+    .sns-icon-svg {
+      width: 52px; height: 52px; border-radius: 14px;
+      flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.5rem;
+      background: rgba(0, 230, 118, 0.1);
+      border: 1px solid rgba(0, 230, 118, 0.2);
+    }
+    .sns-info { flex: 1; }
+    .sns-info h4 {
+      font-size: 1rem; font-weight: 700;
+      color: var(--green-bright);
+      margin-bottom: 4px;
+    }
+    .sns-info p {
+      font-size: 0.8rem;
+      color: var(--green-200);
+      opacity: 0.7;
+    }
+    .sns-arrow {
+      color: var(--green-400);
+      font-size: 1.2rem;
+      transition: var(--transition);
+    }
+    .sns-card:hover .sns-arrow {
+      color: var(--green-bright);
+      transform: translateX(4px);
+    }
+
+    /* ===== TIKTok GALLERY ===== */
+    .tiktok-gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 40px;
+    }
+    .tiktok-thumb {
+      position: relative;
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1px solid var(--glass-border);
+      aspect-ratio: 390 / 480;
+      transition: var(--transition);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    }
+    .tiktok-thumb:hover {
+      transform: translateY(-6px);
+      border-color: var(--green-400);
+      box-shadow: 0 12px 40px rgba(76, 175, 80, 0.25);
+    }
+    .tiktok-thumb img {
+      width: 100%; height: 100%; object-fit: cover;
+      object-position: top center;
+    }
+    .tiktok-thumb-label {
+      position: absolute; top: 12px; left: 12px;
+      background: rgba(0, 230, 118, 0.9);
+      color: #000; font-weight: 700; font-size: 0.75rem;
+      padding: 4px 12px; border-radius: 6px;
+      z-index: 2;
+      letter-spacing: 0.05em;
+    }
+
+    /* ===== FOOTER ===== */
+    .footer {
+      position: relative; z-index: 1;
+      text-align: center;
+      padding: 60px 24px;
+      border-top: 1px solid var(--glass-border);
+      background: rgba(10, 15, 10, 0.9);
+    }
+    .footer-logo {
+      font-size: 1.5rem; font-weight: 900;
+      background: linear-gradient(135deg, var(--green-bright), var(--green-300));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 16px;
+    }
+    .footer-socials {
+      display: flex; gap: 16px; justify-content: center;
+      margin-bottom: 24px;
+    }
+    .footer-social-link {
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      background: rgba(0, 230, 118, 0.1);
+      border: 1px solid rgba(0, 230, 118, 0.2);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem;
+      color: var(--green-bright);
+      transition: var(--transition);
+    }
+    .footer-social-link:hover {
+      background: var(--green-500);
+      color: #fff;
+      transform: translateY(-3px);
+    }
+    .footer p {
+      font-size: 0.75rem;
+      color: var(--green-200);
+      opacity: 0.5;
+    }
+
+    /* ===== MOBILE NAV TOGGLE ===== */
+    .nav-toggle {
+      display: none;
+      background: none; border: none;
+      cursor: pointer; padding: 8px;
+    }
+    .nav-toggle span {
+      display: block; width: 24px; height: 2px;
+      background: var(--green-bright);
+      margin: 6px 0;
+      transition: var(--transition);
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 900px) {
+      .about-grid { grid-template-columns: 1fr; gap: 24px; }
+      .goods-showcase { grid-template-columns: 1fr; gap: 24px; }
+      .tiktok-gallery { grid-template-columns: repeat(2, 1fr); }
+      .sns-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .nav-toggle { display: block; }
+      .nav-links.active {
+        display: flex; flex-direction: column;
+        position: absolute; top: 64px; left: 0; right: 0;
+        background: rgba(10, 15, 10, 0.97);
+        padding: 24px;
+        border-bottom: 1px solid var(--glass-border);
+        gap: 20px;
+      }
+      .hero-avatar { width: 120px; height: 120px; }
+      .section { padding: 60px 16px; }
+      .about-card { padding: 24px; }
+      .fanclub-overlay { padding: 24px; }
+      .fanclub-overlay h3 { font-size: 1.4rem; }
+      .fanclub-banner-img { height: 220px; }
+    }
+    @media (max-width: 480px) {
+      .tiktok-gallery { grid-template-columns: 1fr 1fr; gap: 10px; }
+      .hero-stats { gap: 20px; }
+      .cta-btn { padding: 14px 28px; font-size: 0.9rem; }
+    }
+
+    /* ===== GLOW LINE ===== */
+    .glow-line {
+      width: 80px; height: 3px;
+      background: linear-gradient(90deg, var(--green-bright), transparent);
+      margin: 0 auto 40px;
+      border-radius: 2px;
+    }
+
+    /* ===== DREAM SECTION ===== */
+    .dream-banner {
+      background: linear-gradient(135deg, rgba(0,230,118,0.08), rgba(46,125,50,0.15));
+      border: 1px solid rgba(0,230,118,0.2);
+      border-radius: var(--radius-lg);
+      padding: 48px;
+      text-align: center;
+      margin-top: 60px;
+    }
+    .dream-banner h3 {
+      font-size: 1.6rem; font-weight: 900;
+      color: var(--green-bright);
+      margin-bottom: 12px;
+    }
+    .dream-banner p {
+      font-size: 1.1rem;
+      color: var(--green-100);
+      opacity: 0.8;
+      line-height: 1.8;
+    }
+    .dream-emoji { font-size: 2.5rem; margin-bottom: 16px; }
+  </style>
+</head>
+<body>
+
+  <!-- Background Particles -->
+  <div class="bg-particles" id="particles"></div>
+
+  <!-- Navbar -->
+  <nav class="navbar" id="navbar">
+    <div class="navbar-inner">
+      <a href="#" class="nav-logo">💚 緑ともや</a>
+      <div class="nav-links" id="navLinks">
+        <a href="#about">プロフィール</a>
+        <a href="#goods">グッズ</a>
+        <a href="#fanclub">ファンクラブ</a>
+        <a href="#tiktok">TikTok</a>
+        <a href="#sns">SNS</a>
+      </div>
+      <button class="nav-toggle" id="navToggle" aria-label="メニュー">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero" id="top">
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <img src="https://prd.resource-api.lit.link/images/creator/8f00ad50-f8d6-4f3a-ba84-f5a8dde77cd7/e298af26-95eb-494e-8588-2ae51d78477c.jpeg" alt="緑ともやプロフィール画像" class="hero-avatar">
+      <h1 class="hero-name">💚🛺 緑ともや 🛺💚</h1>
+      <p class="hero-tagline">トゥクトゥクの人 ─ 旅系インフルエンサー・ライバー・シンガー</p>
+      <p style="color: var(--green-200); opacity: 0.6; font-size: 0.85rem; margin-bottom: 24px;">
+        兵庫県出身 神戸市在住 ｜ 1997/10/6 ｜ 173cm
+      </p>
+      <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+        <a href="https://www.tiktok.com/@midori.tomoya.1006" target="_blank" class="cta-btn">
+          🎵 TikTokをチェック
+        </a>
+        <a href="https://www.youtube.com/channel/UCvv8q_j0Y4XFK-U0jchlqrQ/join?sub_confirmation=1" target="_blank" class="cta-btn cta-btn-secondary">
+          ⭐ ファンクラブに入る
+        </a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <span class="hero-stat-num">🛺</span>
+          <span class="hero-stat-label">日本一周完遂</span>
+        </div>
+        <div class="hero-stat">
+          <span class="hero-stat-num">🌏</span>
+          <span class="hero-stat-label">海外コンテンツ</span>
+        </div>
+        <div class="hero-stat">
+          <span class="hero-stat-num">🎤</span>
+          <span class="hero-stat-label">音楽活動</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-scroll">
+      <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="section" id="about">
+    <div class="section-inner">
+      <h2 class="section-title reveal">PROFILE</h2>
+      <p class="section-subtitle reveal">💚🛺 緑ともやのプロフィール 🛺💚</p>
+      <div class="glow-line reveal"></div>
+
+      <div class="about-grid">
+        <div class="about-card reveal">
+          <h3>🧑 自己紹介</h3>
+          <p>
+            <strong>ニックネーム:</strong> ともや、ともくん、ともちゃん、とも<br><br>
+            <strong>出身:</strong> 兵庫県出身 神戸市在住<br>
+            <strong>生年月日:</strong> 1997年10月6日（28歳）<br>
+            <strong>身長/体重/血液型:</strong> 173cm / 64kg / O型<br><br>
+            <strong>職業:</strong> インフルエンサー、ライバー、シンガー<br><br>
+            <strong>現在チャレンジ中:</strong><br>
+            海外コンテンツをYouTubeで投稿、音楽活動、古民家再生
+          </p>
+          <div class="about-tags">
+            <span class="about-tag">🌍 旅</span>
+            <span class="about-tag">⚽ サッカー</span>
+            <span class="about-tag">🍺 飲み</span>
+            <span class="about-tag">🧖 サウナ</span>
+            <span class="about-tag">👕 古着</span>
+            <span class="about-tag">🏕 アウトドア</span>
+            <span class="about-tag">📺 アニメ</span>
+            <span class="about-tag">🍛 スパイスカレー</span>
+            <span class="about-tag">🍜 ラーメン</span>
+            <span class="about-tag">🍤 天ぷら</span>
+          </div>
+        </div>
+
+        <div class="about-card reveal">
+          <h3>📜 経歴・ストーリー</h3>
+          <div class="timeline">
+            <div class="timeline-item"><p>高校時代、香川県でサッカー留学</p></div>
+            <div class="timeline-item"><p>残り1年のところで大学中退</p></div>
+            <div class="timeline-item"><p>サッカーボール蹴りながら全国ドリブル旅</p></div>
+            <div class="timeline-item"><p>ネパールの孤児院でボランティア活動</p></div>
+            <div class="timeline-item"><p>路上BARで生計を立てる</p></div>
+            <div class="timeline-item"><p>沖縄でスムージー屋OPEN</p></div>
+            <div class="timeline-item"><p>ホットサンドのキッチンカー開業</p></div>
+            <div class="timeline-item"><p>ポコチャという配信アプリで活動→TikTokライブへ</p></div>
+            <div class="timeline-item"><p>視聴者の応援で西日本横断旅</p></div>
+            <div class="timeline-item"><p>🛺 日本一周トゥクトゥクの旅 完遂！</p></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="dream-banner reveal">
+        <div class="dream-emoji">🌟</div>
+        <h3>夢</h3>
+        <p>旅系インフルエンサーで1番有名になる！</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Goods Section -->
+  <section class="section" id="goods" style="background: linear-gradient(180deg, var(--dark-bg), rgba(0,30,10,0.5), var(--dark-bg));">
+    <div class="section-inner">
+      <h2 class="section-title reveal">GOODS</h2>
+      <p class="section-subtitle reveal">トゥクトゥクグッズ 絶賛販売中 🛺</p>
+      <div class="glow-line reveal"></div>
+
+      <div class="goods-showcase reveal">
+        <div class="goods-image-wrapper">
+          <img src="https://prd.storage.lit.link/images/creators/2f8f7b0a-de07-4fee-b4c4-425829f62c00/59580af9-c5e8-4511-9341-413fa4f3b1cc.jpeg" alt="トゥクトゥクグッズ">
+        </div>
+        <div class="goods-info">
+          <h3>🛺 トゥクトゥクグッズ</h3>
+          <p>
+            緑ともやのオリジナルグッズが登場！<br>
+            トゥクトゥクをモチーフにしたデザインで、旅の思い出をあなたの手元に。<br>
+            ファンの皆さんと一緒に旅を楽しめるアイテムを絶賛販売中です。
+          </p>
+          <a href="https://tomoyatsu.base.shop/" target="_blank" class="cta-btn">
+            🛒 ショップを見る
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Fan Club Section -->
+  <section class="section" id="fanclub">
+    <div class="section-inner">
+      <h2 class="section-title reveal">FAN CLUB</h2>
+      <p class="section-subtitle reveal">ファンクラブ『緑村』メンバー募集中</p>
+      <div class="glow-line reveal"></div>
+
+      <div class="fanclub-banner reveal">
+        <img src="https://prd.storage.lit.link/images/creators/2f8f7b0a-de07-4fee-b4c4-425829f62c00/9728ce0b-a4fb-4b4a-89bb-3ba9ac7a39d8.png" alt="ファンクラブ緑村" class="fanclub-banner-img">
+        <div class="fanclub-overlay">
+          <h3>🏘️ ファンクラブ『緑村』</h3>
+          <div class="fanclub-features">
+            <div class="fanclub-feature">🎬 限定動画</div>
+            <div class="fanclub-feature">📡 限定配信</div>
+            <div class="fanclub-feature">🎉 メンバー限定オフ会</div>
+            <div class="fanclub-feature">👕 私物フリマ</div>
+          </div>
+          <p>
+            YouTube メンバーシップで、ともやの限定コンテンツをお届け。<br>
+            限定動画・限定配信・メンバー限定オフ会・私物フリマなど、ここでしか見られない特典が盛りだくさん！
+          </p>
+          <a href="https://www.youtube.com/channel/UCvv8q_j0Y4XFK-U0jchlqrQ/join?sub_confirmation=1" target="_blank" class="cta-btn">
+            ⭐ ファンクラブに入る
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TikTok Section -->
+  <section class="section" id="tiktok" style="background: linear-gradient(180deg, var(--dark-bg), rgba(0,30,10,0.5), var(--dark-bg));">
+    <div class="section-inner">
+      <h2 class="section-title reveal">TIKTOK</h2>
+      <p class="section-subtitle reveal">@midori.tomoya.1006 ─ 緑ともやの日本世界旅</p>
+      <div class="glow-line reveal"></div>
+
+      <div class="tiktok-gallery reveal">
+        <div class="tiktok-thumb">
+          <span class="tiktok-thumb-label">メイン</span>
+          <img src="tiktok_main.png" alt="TikTok 緑ともや メインアカウント">
+        </div>
+        <div class="tiktok-thumb">
+          <span class="tiktok-thumb-label">サブ垢</span>
+          <img src="tiktok_sub.png" alt="TikTok 緑ともやサブ ダンス動画">
+        </div>
+        <div class="tiktok-thumb">
+          <span class="tiktok-thumb-label">グルメ</span>
+          <img src="tiktok_gourmet.png" alt="TikTok 緑ともやグルメ 日本世界グルメ">
+        </div>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; margin-top: 32px;" class="reveal">
+        <a href="https://www.tiktok.com/@midori.tomoya.1006" target="_blank" class="sns-card">
+          <div class="sns-icon">
+            <img src="https://prd.resource-api.lit.link/images/creator/8f00ad50-f8d6-4f3a-ba84-f5a8dde77cd7/1842d0d3-8a5a-4e1b-8907-0d9861496f06.png" alt="">
+          </div>
+          <div class="sns-info">
+            <h4>TikTok メイン</h4>
+            <p>緑ともやの日本世界旅</p>
+          </div>
+          <span class="sns-arrow">→</span>
+        </a>
+        <a href="https://www.tiktok.com/@midori.tomoya.sabu" target="_blank" class="sns-card">
+          <div class="sns-icon">
+            <img src="https://prd.resource-api.lit.link/images/creator/8f00ad50-f8d6-4f3a-ba84-f5a8dde77cd7/954c33fd-11e7-47a2-8877-678335e7874e.png" alt="">
+          </div>
+          <div class="sns-info">
+            <h4>TikTok サブ垢</h4>
+            <p>ダンス動画</p>
+          </div>
+          <span class="sns-arrow">→</span>
+        </a>
+        <a href="https://www.tiktok.com/@midori.tomoya.gourmet" target="_blank" class="sns-card">
+          <div class="sns-icon">
+            <img src="https://prd.resource-api.lit.link/images/creator/8f00ad50-f8d6-4f3a-ba84-f5a8dde77cd7/45737bcb-6e1e-402b-8adc-22f5168ade96.png" alt="">
+          </div>
+          <div class="sns-info">
+            <h4>TikTok グルメ垢</h4>
+            <p>日本世界のグルメを紹介</p>
+          </div>
+          <span class="sns-arrow">→</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SNS Links Section -->
+  <section class="section" id="sns">
+    <div class="section-inner">
+      <h2 class="section-title reveal">SNS & LINKS</h2>
+      <p class="section-subtitle reveal">すべてのアカウントをフォローしよう</p>
+      <div class="glow-line reveal"></div>
+
+      <div class="sns-grid reveal">
+        <!-- YouTube -->
+        <a href="https://www.youtube.com/@midori.tomoya.1006" target="_blank" class="sns-card">
+          <div class="sns-icon">
+            <img src="https://prd.resource-api.lit.link/images/creator/8f00ad50-f8d6-4f3a-ba84-f5a8dde77cd7/174a4ce1-0d36-4a1f-8bd3-de1f441106bc.jpeg" alt="YouTube">
+          </div>
+          <div class="sns-info">
+            <h4>YouTube</h4>
+            <p>海外コンテンツ・旅動画を投稿中</p>
+          </div>
+          <span class="sns-arrow">→</span>
+        </a>
+        <!-- Instagram メイン -->
+        <a href="https://www.instagram.com/midori.tomoya.1006/" target="_blank" class="sns-card">
+          <div class="sns-icon">
+            <img src="https://prd.resource-api.lit.link/images/creator/8f00ad50-f8d6-4f3a-ba84-f5a8dde77cd7/2a91805f-736f-4cfb-84c0-6afc2f7b7307.jpeg" alt="Instagram メイン">
+          </div>
+          <div class="sns-info">
+            <h4>Instagram メイン垢</h4>
+            <p>日本世界一人旅</p>
+          </div>
+          <span class="sns-arrow">→</span>
+        </a>
+        <!-- Instagram サブ -->
+        <a href="https://www.instagram.com/midori_tomoya_sabu" target="_blank" class="sns-card">
+          <div class="sns-icon">
+            <img src="https://prd.resource-api.lit.link/images/creators/2f8f7b0a-de07-4fee-b4c4-425829f62c00/21933661-68af-4596-b3d6-d85ea0264d6b.jpeg" alt="Instagram サブ">
+          </div>
+          <div class="sns-info">
+            <h4>Instagram サブ垢</h4>
+            <p>1番リアルな緑ともや</p>
+          </div>
+          <span class="sns-arrow">→</span>
+        </a>
+        <!-- Instagram グルメ -->
+        <a href="https://www.instagram.com/midori_tomoya_gourmet" target="_blank" class="sns-card">
+          <div class="sns-icon">
+            <img src="https://prd.resource-api.lit.link/images/creators/2f8f7b0a-de07-4fee-b4c4-425829f62c00/a0157f23-4065-4c01-b719-df9298018b32.jpeg" alt="Instagram グルメ">
+          </div>
+          <div class="sns-info">
+            <h4>Instagram グルメ垢</h4>
+            <p>日本世界のグルメを紹介</p>
+          </div>
+          <span class="sns-arrow">→</span>
+        </a>
+        <!-- Instagram 歌 -->
+        <a href="https://www.instagram.com/midori.tomoya.song/" target="_blank" class="sns-card">
+          <div class="sns-icon">
+            <img src="https://prd.resource-api.lit.link/images/creators/2f8f7b0a-de07-4fee-b4c4-425829f62c00/profile_links/buttons/bf98cd3f-4e42-4fb7-9b4d-fb89e1092797.jpeg" alt="Instagram 歌">
+          </div>
+          <div class="sns-info">
+            <h4>Instagram 歌アカウント</h4>
+            <p>日本世界で歌ってる</p>
+          </div>
+          <span class="sns-arrow">→</span>
+        </a>
+        <!-- X (Twitter) -->
+        <a href="https://twitter.com/modori_tomoya" target="_blank" class="sns-card">
+          <div class="sns-icon">
+            <img src="https://prd.resource-api.lit.link/images/creator/8f00ad50-f8d6-4f3a-ba84-f5a8dde77cd7/c75ada7d-7808-49c0-9ab5-b58077d6d8be.jpeg" alt="X">
+          </div>
+          <div class="sns-info">
+            <h4>X（Twitter）</h4>
+            <p>最新情報・つぶやき</p>
+          </div>
+          <span class="sns-arrow">→</span>
+        </a>
+        <!-- Threads -->
+        <a href="https://www.threads.net/@midori.tomoya.1006" target="_blank" class="sns-card">
+          <div class="sns-icon">
+            <img src="https://prd.resource-api.lit.link/images/creator/8f00ad50-f8d6-4f3a-ba84-f5a8dde77cd7/bec6e17a-62e0-4d93-878b-eb38bbc9d075.jpeg" alt="Threads">
+          </div>
+          <div class="sns-info">
+            <h4>Threads</h4>
+            <p>日常の発信</p>
+          </div>
+          <span class="sns-arrow">→</span>
+        </a>
+        <!-- lit.link -->
+        <a href="https://lit.link/tomoya1006" target="_blank" class="sns-card">
+          <div class="sns-icon-svg">🔗</div>
+          <div class="sns-info">
+            <h4>lit.link</h4>
+            <p>すべてのリンクまとめ</p>
+          </div>
+          <span class="sns-arrow">→</span>
+        </a>
+        <!-- BASE Shop -->
+        <a href="https://tomoyatsu.base.shop/" target="_blank" class="sns-card">
+          <div class="sns-icon-svg">🛒</div>
+          <div class="sns-info">
+            <h4>オンラインショップ</h4>
+            <p>トゥクトゥクグッズ販売中</p>
+          </div>
+          <span class="sns-arrow">→</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-logo">💚 緑ともや</div>
+    <div class="footer-socials">
+      <a href="https://www.tiktok.com/@midori.tomoya.1006" target="_blank" class="footer-social-link" title="TikTok">🎵</a>
+      <a href="https://www.youtube.com/@midori.tomoya.1006" target="_blank" class="footer-social-link" title="YouTube">▶</a>
+      <a href="https://www.instagram.com/midori.tomoya.1006/" target="_blank" class="footer-social-link" title="Instagram">📷</a>
+      <a href="https://twitter.com/modori_tomoya" target="_blank" class="footer-social-link" title="X">✖</a>
+      <a href="https://www.threads.net/@midori.tomoya.1006" target="_blank" class="footer-social-link" title="Threads">🧵</a>
+    </div>
+    <p>&copy; 2024 緑ともや All Rights Reserved.</p>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    // === Particles ===
+    (function() {
+      const container = document.getElementById('particles');
+      for (let i = 0; i < 30; i++) {
+        const p = document.createElement('div');
+        p.className = 'particle';
+        p.style.left = Math.random() * 100 + '%';
+        p.style.animationDelay = Math.random() * 8 + 's';
+        p.style.animationDuration = (6 + Math.random() * 6) + 's';
+        p.style.width = p.style.height = (2 + Math.random() * 4) + 'px';
+        container.appendChild(p);
+      }
+    })();
+
+    // === Mobile Nav Toggle ===
+    document.getElementById('navToggle').addEventListener('click', function() {
+      document.getElementById('navLinks').classList.toggle('active');
+    });
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        document.getElementById('navLinks').classList.remove('active');
+      });
+    });
+
+    // === Scroll Reveal ===
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+    reveals.forEach(el => observer.observe(el));
+
+    // === Navbar background on scroll ===
+    window.addEventListener('scroll', () => {
+      const navbar = document.getElementById('navbar');
+      if (window.scrollY > 80) {
+        navbar.style.background = 'rgba(10, 15, 10, 0.95)';
+        navbar.style.boxShadow = '0 2px 20px rgba(0,0,0,0.3)';
+      } else {
+        navbar.style.background = 'rgba(10, 15, 10, 0.8)';
+        navbar.style.boxShadow = 'none';
+      }
+    });
+
+    // === Smooth stagger animation for SNS cards ===
+    const snsCards = document.querySelectorAll('.sns-card');
+    const snsObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          entry.target.style.transition = `opacity 0.5s ease ${i * 0.08}s, transform 0.5s ease ${i * 0.08}s`;
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, { threshold: 0.05 });
+    snsCards.forEach(card => {
+      card.style.opacity = '0';
+      card.style.transform = 'translateY(20px)';
+      snsObserver.observe(card);
+    });
+  </script>
+</body>
+</html>
